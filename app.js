@@ -21,7 +21,8 @@ mongoose.set('useFindAndModify', false);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.get('/').get((req, res) => res.redirect('/graphql'));
+app.get('/', (req, res) => res.redirect('/graphql'));
+
 app.use('/api', eventRouter(Event));
 app.use('/graphql', GraphQLHTTP({schema, graphiql: true }));
 
