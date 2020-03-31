@@ -7,7 +7,8 @@ import eventSchema from './graphql/schema';
 import GraphQLHTTP from 'express-graphql';
 
 const app = express();
-const db = mongoose.connect("mongodb://localhost/eventAPI", {
+const MONGOLAB_URL = process.env.MONGOLAB_URL || 'mongodb://localhost/eventAPI';
+const db = mongoose.connect(MONGOLAB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true 
 });
